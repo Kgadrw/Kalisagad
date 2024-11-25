@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gad Kalisa | Web Developer & UI/UX Designer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            background: #f4f6f9;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: background-color 0.3s ease;
+        }
+
+        header.sticky {
+            background-color: #4e54c8;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        nav .logo {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #4e54c8;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.3s ease, border-bottom 0.3s ease;
+            padding-bottom: 0.2rem;
+        }
+
+        nav ul li a:hover {
+            color: #4e54c8;
+            border-bottom: 2px solid #4e54c8;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #4e54c8, #8f94fb);
+            color: #fff;
+            text-align: center;
+            padding: 10rem 1rem 5rem;
+            margin-top: 4rem;
+            clip-path: ellipse(100% 90% at 50% 10%);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin: 1rem 0;
+            animation: fadeIn 2s ease-out 0.5s;
+        }
+
+        .cta-btn {
+            background: #ffcc00;
+            color: #333;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 25px;
+            margin-top: 1rem;
+            display: inline-block;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.1);
+            background: #ffc107;
+        }
+
+        #about {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        #about h2 {
+            font-size: 2.5rem;
+            color: #4e54c8;
+            margin-bottom: 2rem;
+        }
+
+        #about p {
+            font-size: 1.1rem;
+            margin: 1rem 0;
+            color: #666;
+            line-height: 1.8;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #skills {
+            padding: 4rem 2rem;
+            background: #fff;
+            text-align: center;
+        }
+
+        #skills h2 {
+            font-size: 2.5rem;
+            color: #4e54c8;
+            margin-bottom: 2rem;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .skill-item {
+            background: #f4f6f9;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .skill-item h3 {
+            font-size: 1.2rem;
+            color: #4e54c8;
+            margin-bottom: 1rem;
+        }
+
+        #projects {
+            padding: 4rem 2rem;
+        }
+
+        #projects h2 {
+            font-size: 2.5rem;
+            color: #4e54c8;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .project-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+
+        .project-card {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 280px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #4e54c8;
+        }
+
+        #contact {
+            padding: 4rem 2rem;
+            background: #f4f6f9;
+            text-align: center;
+        }
+
+        #contact h2 {
+            font-size: 2.5rem;
+            color: #4e54c8;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            margin-top: 1rem;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #666;
+        }
+
+        .contact-info a {
+            color: #4e54c8;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: #ffcc00;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            background: #4e54c8;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .skills-container, .project-container {
+                flex-direction: column;
+            }
+
+            .skill-item, .project-card {
+                width: 90%;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Gad Kalisa</div>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Hi, I'm Gad Kalisa</h1>
+        <p>UI/UX Designer & Web Developer based in Kigali, Rwanda</p>
+        <a href="#about" class="cta-btn">Learn More</a>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            I am <strong>Gad Kalisa</strong>, a passionate and certified <strong>UI/UX Designer</strong> and <strong>Web Developer</strong> based in Kigali, Rwanda. With a solid foundation in <strong>front-end development</strong>, modern design principles, and <strong>AI-driven workflows</strong>, I am dedicated to creating intuitive and engaging digital experiences.
+        </p>
+        <p>
+            My journey started with a love for design, and through dedication and learning, I now craft seamless, user-centered websites and interfaces. I believe in continuous learning and always strive to stay updated with the latest technologies and trends in web development.
+        </p>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <div class="skill-item">
+                <h3>UI/UX Design</h3>
+                <p>Expert in Figma, Adobe XD, and prototyping tools</p>
+            </div>
+            <div class="skill-item">
+                <h3>Front-End Development</h3>
+                <p>HTML, CSS, JavaScript, React.js</p>
+            </div>
+            <div class="skill-item">
+                <h3>Back-End Development</h3>
+                <p>Node.js, Express.js, MongoDB</p>
+            </div>
+            <div class="skill-item">
+                <h3>Web Accessibility</h3>
+                <p>Ensuring websites are accessible to all users</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project-container">
+            <div class="project-card">
+                <h3>Project 1</h3>
+                <p>A responsive website for a local business</p>
+            </div>
+            <div class="project-card">
+                <h3>Project 2</h3>
+                <p>A mobile app with real-time data integration</p>
+            </div>
+            <div class="project-card">
+                <h3>Project 3</h3>
+                <p>A personal blog with custom CMS</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <div class="contact-info">
+            <p>If you're interested in working together, feel free to reach out!</p>
+            <a href="mailto:kalisagad05@gmail.com">kalisagad05@gmail.com</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Gad Kalisa. All rights reserved.</p>
+    </footer>
+</body>
+</html>
